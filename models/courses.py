@@ -11,6 +11,8 @@ class Careers(models.Model):
     progress = fields.Float(string='Progress')
     courses_ids = fields.One2many('courses', 'careers_id', string='Courses')
     description = fields.Text(string="Description")
+    date_start = fields.Date(string="Date start")
+    date_end = fields.Date(string="Date end")
 
 class Courses(models.Model):
     _name = 'courses'
