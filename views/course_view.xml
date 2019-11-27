@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="career_form_view" model="ir.ui.view">
+	    <field name="name">career.form.view</field>
+	    <field name="model">careers</field>
+	    <field name="arch" type="xml">
+		   <form string="Careers">
+			<header>
+			   <button name="done" string="done"/>
+			</header>
+			<sheet>
+			    <field name="name"/>
+			    <field name="progress"/>
+			    <field name="courses_ids"/>
+			</sheet>
+		    </form>
+	    </field>
+    	</record>
+
+	<record id="career_tree_view" model="ir.ui.view">
+		<field name="name">career.tree.view</field>
+		<field name="model">careers</field>
+		<field name="arch" type="xml">
+			<tree string="Careers">
+				<field name="name"/>
+				<field name="progress"/>
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.actions.act_window" id="action_careers">
+		<field name="name">Career</field>
+		<field name="res_model">careers</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem 
+		id="menu_root"
+		name="Courses"
+		/>
+	<menuitem 
+		id="menu_main_courses"
+		name="Courses"
+		parent="menu_root"
+		/>
+	<menuitem
+		id="menu_courses"
+		name="Careers"
+		parent="menu_main_courses"
+		action="action_careers"
+		/>
+
+	<record id="courses_form_view" model="ir.ui.view">
+		<field name="name">courses.form.view</field>
+		<field name="model">courses</field>
+		<field name="arch" type="xml">
+			<form string="Courses">
+				<sheet>
+					<field name="name"/>
+					<field name="progress"/>
+					<field name="date_start"/>
+					<field name="date_end"/>
+					<field name="careers_id"/>
+					<field name="topics_ids"/>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="course_tree_view" model="ir.ui.view">
+		<field name="name">course.tree.view</field>
+		<field name="model">courses</field>
+		<field name="arch" type="xml">
+			<tree string="Courses">
+				<field name="name"/>
+				<field name="careers_id"/>
+				<field name="progress"/>
+				<field name="date_start"/>
+				<field name="date_end"/>
+				<field name="topics_ids"/>
+			</tree>
+		</field>
+	</record>
+
+	
+	<record model="ir.actions.act_window" id="action_courses">
+		<field name="name">Courses</field>
+		<field name="res_model">courses</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem 
+		id="menu_courses"
+		name="Courses"
+		parent="menu_main_course"
+		action="action_courses"
+		/>
+
+
+	<record id="course_topics_form_view" model="ir.ui.view">
+		<field name="name">course.topics.form.view</field>
+		<field name="model">course.topics</field>
+		<field name="arch" type="xml">
+			<form string="Course Topics">
+				<header>
+					<field name="status"/>
+				</header>
+				<sheet>
+					<field name="name"/>
+					<field name="course_id"/>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+
+	<record id="course_topics_tree_view" model="ir.ui.view">
+		<field name="name">course.topics.tree.view</field>
+		<field name="model">course.topics</field>
+		<field name="arch" type="xml">
+			<tree string="Course Topics">
+				<field name="status"/>
+				<field name="name"/>
+				<field name="course_id"/>
+			</tree>
+		</field>
+	</record>
+
+
+	<record id="action_course_topics" model="ir.actions.act_window">
+		<field name="name">course.topics</field>
+		<field name="res_model">course.topics</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem 
+		id="menu_course_topics"
+		name="Course topics"
+		parent="menu_main_course"
+		action="action_course_topics"
+		/>
+
+	<record id="project_form_view" model="ir.ui.view">
+		<field name="name">project.form.view</field>
+		<field name="model">project</field>
+		<field name="arch" type="xml">
+			<form string="Project">
+				<sheet>
+					<group name="main" col=4>
+						<field name="name"/>
+					</group>
+				</sheet>
+
+			</form>
+		</field>
+	</record>
+
+	<record id="project_tree_view" model="ir.ui.view">
+		<field name="name">project.form.vew</field>
+		<field name="model">project</field>
+		<field name="arch" type="xml">
+			<tree string="Project">
+				<field name="name"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="action_project" model="ir.actions.act_window">
+		<field name="name">Project</field>
+		<field name="res_model">project</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem
+		id="menu_project"
+		name="Project"
+		parent="menu_main_course"
+		action="action_project"
+		/>
+
+
+
+</odoo>
+
+
