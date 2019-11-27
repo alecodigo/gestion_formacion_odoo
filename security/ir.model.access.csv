@@ -3,3 +3,4 @@ access_courses,courses,model_courses,base.group_user,1,1,1,1
 access_careers,careers,model_careers,base.group_user,1,1,1,1
 access_course_topics,course_topics,model_course_topics,base.group_user,1,1,1,1
 access_projects,projects,model_projects,base.group_user,1,1,1,1
+access_technology,course_tracking_technology,model_technology,base.group_user,1,1,1,1
