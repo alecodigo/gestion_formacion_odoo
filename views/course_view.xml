@@ -111,8 +111,10 @@
 					<field name="status"/>
 				</header>
 				<sheet>
-					<field name="name"/>
-					<field name="course_id"/>
+					<group col="4" name="topics" string="Topics">
+						<field name="name"/>
+						<field name="course_id"/>
+					</group>
 				</sheet>
 			</form>
 		</field>
@@ -153,7 +155,7 @@
 		<field name="arch" type="xml">
 			<form string="Project">
 				<sheet>
-					<group name="main" col="4">
+					<group name="main" col="2">
 						<field name="name"/>
 					</group>
 				</sheet>
@@ -192,7 +194,7 @@
 		<field name="model">technology</field>
 		<field name="arch" type="xml">
 			<form string="Technology">
-				<group>
+				<group col="2">
 					<field name="name"/>
 				</group>
 			</form>
