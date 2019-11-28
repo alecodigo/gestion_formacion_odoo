@@ -10,9 +10,10 @@ class Careers(models.Model):
     name = fields.Char(string='Career')
     progress = fields.Float(string='Progress')
     courses_ids = fields.One2many('courses', 'careers_id', string='Courses')
-    description = fields.Text(string="Description")
-    date_start = fields.Date(string="Date start")
-    date_end = fields.Date(string="Date end")
+    description = fields.Text(string='Description')
+    date_start = fields.Date(string='Date start')
+    date_end = fields.Date(string='Date end')
+    projects_ids = fields.One2many('projects' ,'career_id', string='Projects')
 
 class Courses(models.Model):
     _name = 'courses'
@@ -41,11 +42,14 @@ class Projects(models.Model):
 
 
     name = fields.Char(string='Project')
-
-
+    carrer_id = fields.Many2one('careers', string='career')
+    description = fields.Text(string='description')
+    tech_ids = fields.One2many('technology' ,'project_id', string='Technologies')
+    career_id = fields.Many2one('careers', string='Career')
 
 class Technology(models.Model):
     _name = "technology"
 
 
     name = fields.Char(string='Name')
+    project_id = fields.Many2one(string='Projects')
