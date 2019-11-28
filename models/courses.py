@@ -8,12 +8,33 @@ class Careers(models.Model):
     _name = 'careers'
 
     name = fields.Char(string='Career')
+    status = fields.Selection([('important', 'Important'),
+                               ('no_important', 'Not important'),
+                               ('urgent', 'Urgent'),
+                               ('not_urgent', 'Not urgent'),], string='status')
     progress = fields.Float(string='Progress')
     courses_ids = fields.One2many('courses', 'careers_id', string='Courses')
     description = fields.Text(string='Description')
     date_start = fields.Date(string='Date start')
     date_end = fields.Date(string='Date end')
-    projects_ids = fields.One2many('projects' ,'career_id', string='Projects')
+    projects_ids = fields.One2many('projects' ,'career_id', string='Projects')  
+
+    
+    def important(self):
+        self.status = 'important'
+
+
+    def not_important(self):
+        self.status = 'no_important'
+
+    def urgent(self):
+        self.status = 'urgent'
+
+    def not_urgent(self):
+        self.status = 'not_urgent'
+
+
+
 
 class Courses(models.Model):
     _name = 'courses'
@@ -25,6 +46,7 @@ class Courses(models.Model):
     careers_id = fields.Many2one('careers', string='Career')
     topics_ids = fields.One2many('course.topics', 'course_id', string='Topics')
 
+
 class CourseTopics(models.Model):
     _name = 'course.topics'
 
@@ -35,6 +57,7 @@ class CourseTopics(models.Model):
                                 ('to_do','To-do'),
                             ],string='status')
     course_id = fields.Many2one('courses', string='Courses')
+    date_start = fields.Date(string='Date start')
 
 
 class Projects(models.Model):
