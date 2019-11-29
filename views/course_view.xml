@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-	<record id="career_form_view" model="ir.ui.view">
+	<record id="careers_form_view" model="ir.ui.view">
 	    <field name="name">career.form.view</field>
 	    <field name="model">careers</field>
 	    <field name="arch" type="xml">
@@ -33,7 +33,7 @@
 	    </field>
     	</record>
 
-	<record id="career_tree_view" model="ir.ui.view">
+	<record id="careers_tree_view" model="ir.ui.view">
 		<field name="name">career.tree.view</field>
 		<field name="model">careers</field>
 		<field name="arch" type="xml">
@@ -47,7 +47,7 @@
 		</field>
 	</record>
 	
-	<record id="career_graph_view" model="ir.ui.view">
+	<record id="careers_graph_view" model="ir.ui.view">
 		<field name="name">career_graph_view</field>
 		<field name="model">careers</field>
 		<field name="arch" type="xml">
@@ -56,12 +56,25 @@
 			</graph>
 		</field>
 	</record>
-	
+
+	<record id="careers_calendar_view" model="ir.ui.view">
+		<field name="name">career_calendar</field>
+		<field name="model">careers</field>
+		<field name="arch" type="xml">
+		<calendar string="Topics" date_start="date_start" date_stop="date_end">
+			<field name="name"/>
+			<field name="date_start"/>
+			<field name="date_end"/>
+		</calendar>
+		</field>
+	</record>
+
+
 	<record model="ir.actions.act_window" id="action_careers">
 		<field name="name">Careers</field>
 		<field name="res_model">careers</field>
 		<field name="view_type">form</field>
-		<field name="view_mode">tree,form,graph</field>
+		<field name="view_mode">tree,form,graph,calendar</field>
 	</record>
 
 	<menuitem 
