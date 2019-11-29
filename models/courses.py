@@ -11,7 +11,7 @@ class Careers(models.Model):
     state = fields.Selection([('important', 'Important'),
                                ('no_important', 'Not important'),
                                ('urgent', 'Urgent'),
-                               ('not_urgent', 'Not urgent'),], string='status')
+                               ('done', 'Done'),], string='status')
     progress = fields.Float(string='Progress')
     courses_ids = fields.One2many('courses', 'careers_id', string='Courses')
     description = fields.Text(string='Description')
@@ -30,8 +30,8 @@ class Careers(models.Model):
     def urgent(self):
         self.state = 'urgent'
 
-    def not_urgent(self):
-        self.state = 'not_urgent'
+    def done(self):
+        self.state = 'done'
 
 
 

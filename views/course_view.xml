@@ -9,7 +9,7 @@
 				<button name="important" type="object" string="Important"/>
 				<button name="no_important" type="object" string="Not Important"/>
 				<button name="urgent" type="object" string="Urgent"/>
-				<button name="not_urgent" type="object" string="Not urgent"/>
+				<button name="done" type="object" string="Done"/>
 				<field name="state" widget="statusbar"/>
 			  </header> 
 			  <sheet>
@@ -37,7 +37,7 @@
 		<field name="name">career.tree.view</field>
 		<field name="model">careers</field>
 		<field name="arch" type="xml">
-			<tree string="Careers">
+			<tree string="Careers" decoration-danger="state=='urgent'" decoration-info="state=='important'" decoration-success="state=='done'">
 				<field name="name"/>
 				<field name="state"/>
 				<field name="date_start"/>
