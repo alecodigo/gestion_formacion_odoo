@@ -8,7 +8,7 @@ class Careers(models.Model):
     _name = 'careers'
 
     name = fields.Char(string='Career')
-    status = fields.Selection([('important', 'Important'),
+    state = fields.Selection([('important', 'Important'),
                                ('no_important', 'Not important'),
                                ('urgent', 'Urgent'),
                                ('not_urgent', 'Not urgent'),], string='status')
@@ -21,17 +21,17 @@ class Careers(models.Model):
 
     
     def important(self):
-        self.status = 'important'
+        self.state = 'important'
 
 
     def not_important(self):
-        self.status = 'no_important'
+        self.state = 'no_important'
 
     def urgent(self):
-        self.status = 'urgent'
+        self.state = 'urgent'
 
     def not_urgent(self):
-        self.status = 'not_urgent'
+        self.state = 'not_urgent'
 
 
 
@@ -51,14 +51,24 @@ class CourseTopics(models.Model):
     _name = 'course.topics'
 
     name = fields.Char(string='Topic')
-    status = fields.Selection([ 
-                                ('done','Done'),
-                                ('in_progress','In progress'),
+    state = fields.Selection([  
                                 ('to_do','To-do'),
+                                ('in_progress','In progress'),
+                                ('done','Done'),
                             ],string='status')
     course_id = fields.Many2one('courses', string='Courses')
     date_start = fields.Date(string='Date start')
+    observation = fields.Text(string='Observation')
 
+
+    def to_do(self):
+        self.state = 'to_do'
+
+    def done(self):
+        self.state = 'done'
+    
+    def in_progress(self):
+        self.state = 'in_progress'
 
 class Projects(models.Model):
     _name = 'projects'
