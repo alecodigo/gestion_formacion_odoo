@@ -13,9 +13,10 @@
     'data': [
             'security/ir.model.access.csv',
             'views/course_view.xml',
+            'views/task_view.xml',
         ],
 
-    'aplication': True,
+    'application': True,
     'install': True,        
         
         

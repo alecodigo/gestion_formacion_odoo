@@ -28,11 +28,14 @@ class Careers(models.Model):
     def important(self):
         self.state = 'important'
 
+
     def not_important(self):
         self.state = 'no_important'
 
+
     def urgent(self):
         self.state = 'urgent'
+
 
     def done(self):
         self.state = 'done'
@@ -40,6 +43,7 @@ class Careers(models.Model):
 
 class Courses(models.Model):
     _name = 'courses'
+
 
     #@api.multi
     #@api.depends('progress')
@@ -68,13 +72,13 @@ class Courses(models.Model):
     topics_ids = fields.One2many('course.topics', 'course_id', string='Topics')
 
 
-
     def to_do(self):
         self.state = 'to_do'
         
 
     def done(self):
         self.state = 'done'
+
 
     def in_progress(self):
         self.state = 'in_progress'
@@ -114,8 +118,9 @@ class Projects(models.Model):
 
     name = fields.Char(string='Project')
     state = fields.Selection([('done', 'Done'),
-                              ('to_do', 'To do')], string='Status', default='to_do')
-    carrer_id = fields.Many2one('careers', string='career')
+                              ('to_do', 'To do')], 
+                              string='Status', default='to_do')
+    carrer_id = fields.Many2one('careers', string='Carrer')
     description = fields.Text(string='description')
     tech_ids = fields.One2many('technology' ,'project_id', string='Technologies')
     career_id = fields.Many2one('careers', string='Career')
