@@ -280,6 +280,7 @@
 			<form string="Technology">
 				<group col="2">
 					<field name="name"/>
+					<field name="level_skill"/>
 				</group>
 			</form>
 		</field>
@@ -291,6 +292,7 @@
 		<field name="arch" type="xml">
 			<tree string="Technology">
 				<field name="name"/>
+				<field name="level_skill"/>
 			</tree>
 		</field>
 	</record>

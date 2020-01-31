@@ -3,7 +3,7 @@
 {
     'name': 'course',
     'summary': """Manage courses""",
-    'author': "Alejandro Sanchez",
+    'author': "Ing. Alejandro Sanchez",
     
     'category': 'Education',
     'version': '0.1',

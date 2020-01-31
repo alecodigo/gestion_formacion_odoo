@@ -137,3 +137,8 @@ class Technology(models.Model):
 
     name = fields.Char(string='Name')
     project_id = fields.Many2one(string='Projects')
+    level_skill = fields.Selection([('very_low', 'Very low'),
+                                    ('low', 'Low'),
+                                    ('medium', 'Medium'),
+                                    ('high', 'High'),
+                                    ('very_high', 'Very high')], string='Skill level')

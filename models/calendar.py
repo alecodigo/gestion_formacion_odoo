@@ -10,6 +10,7 @@ class task(models.Model):
     _description = 'Task of day'
 
     name = fields.Many2one('courses', string='Course')
+    topic_id = fields.Many2one('course.topics', string='Related Course')
     state = fields.Selection([('draft','Draft'),
                                ('done','Done')], string='State')
     date_start = fields.Date(string='Date start')

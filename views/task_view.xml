@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<record id="task_view_form" model="ir.ui.model">
+<odoo>
+    <record id="task_view_form" model="ir.ui.view">
 	<field name="name">task.view.form</field>
 	<field name="model">task</field>
 	<field name="arch" type="xml">
@@ -15,9 +16,9 @@
 		        </sheet>
 		</form>
 	</field>
-</record>
+    </record>
 
-<record id="task_view_tree" model="ir.ui.model">
+    <record id="task_view_tree" model="ir.ui.view">
 	<field name="name">task.view.tree</field>
 	<field name="model">task</field>
 	<field name="arch" type="xml">
@@ -28,15 +29,48 @@
 			<field name="state"/>
 		</tree>
 	</field>
-</record>
+    </record>
 
-<record id="task_view_graph" model="ir.ui.model">
+    <record id="task_view_graph" model="ir.ui.view">
 	<field name="name">task.view.graph</field>
 	<field name="model">task</field>
 	<field name="arch" type="xml">
 		<graph string="tasks">
 			<field name="name"/>
+			<field name="topic_id"/>
 			<field name="date_start"/>
 			<field name="date_end"/>
 		</graph>
 	</field>
+    </record>
+
+    <record id="task_view_calendar" model="ir.ui.view">
+	    <field name="name">task.view.calendar</field>
+	    <field name="model">task</field>
+	    <field name="arch" type="xml">
+		    <calendar date_start="date_start" date_stop="date_end" color="topic_id">
+			    <field name="name"/>
+			    <field name="topic_id"/>
+			    <field name="date_start"/>
+			    <field name="date_end"/>
+
+		    </calendar>
+	    </field>
+    </record>
+
+    <record id="action_task" model="ir.actions.act_window">
+	    <field name="name">Task calendar</field>
+	    <field name="res_model">task</field>
+	    <field name="view_type">form</field>
+	    <field name="view_mode">form,tree,calendar,graph</field>
+    </record>
+
+
+    <menuitem
+	    id="calendar_menu"
+            name="Task"
+	    parent="course_tracking.menu_root"
+	    action="action_task"
+	    />
+ 
+</odoo>
